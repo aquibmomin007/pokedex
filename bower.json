@@ -1,8 +1,8 @@
 {
-  "name": "AngularJS Boilerplate",
+  "name": "Pokedex",
   "version": "1.1.7",
   "authors": [
-    "jozef butko <jbutko@gmail.com> / jozefbutko.com/resume"
+    "Aquib Momin"
   ],
   "description": "Description goes here",
   "main": "app.js",
@@ -10,7 +10,7 @@
     "angularjs"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/jbutko/AngularJS-Boilerplate",
+  "homepage": "https://github.com/aquibmomin007/pokedex",
   "private": false,
   "ignore": [
     "**/.*",

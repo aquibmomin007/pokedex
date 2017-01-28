@@ -5,27 +5,21 @@
     
     angular
       .module('pokedex')
-      .factory('LocalStorage', ['$http', LocalStorageService]);
+      .factory('LocalStorage',['$injector', LocalStorageService]);
+    
 
+    function LocalStorageService($injector) {
+          var factory = {};
 
-    function LocalStorageService($http) {
+          factory.getData = function() {
+              console.log("inside get");
+              var $http = $injector.get('$http');
+                  return $http.get('/data/pokedex.json');
+          };
 
-        return {
-          get: get,
-          list: list
-        };
-
-
-         function get() {
-          console.log("inside get");
-         }
-
-
-         function list() {
-           console.log("inside list");
-         }
-        
-    }
+          return factory;
+              
+          }
 
 
 })();

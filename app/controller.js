@@ -9,18 +9,14 @@
 
   angular
     .module('pokedex')
-    .controller('PokeBodyController', PokeBodyController);
-
-  PokeBodyController.$inject = ['LocalStorage'];
+    .controller('PokeBodyController',['$scope', 'LocalStorage', PokeBodyController]);
 
 
-  function PokeBodyController(LocalStorage) {
-
-    // 'controller as' syntax
-    var self = this;
-
-    LocalStorage.get();
-    LocalStorage.list();
+  function PokeBodyController($scope, LocalStorage) {
+    LocalStorage.getData().then(function(response) {
+      $scope.pokeData = response.data;
+      console.log($scope.pokeData);
+    });
   }
 
 

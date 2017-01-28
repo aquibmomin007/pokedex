@@ -1,6 +1,6 @@
 {
   "name": "Pokedex",
-  "version": "1.1.7",
+  "version": "1.0.0",
   "license": "MIT",
   "description": "Simple AngularJS Pokedex App",
   "main": "app/app.js",
@@ -39,6 +39,10 @@
   "scripts": {
     "postinstall": "bower install --no-interactive --allow-root"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aquibmomin007/pokedex.git"
+  },
   "keywords": [
     "angular",
     "angularjs",
@@ -47,5 +51,8 @@
     "app",
     "single-page",
     "spa"
-  ]
+  ],
+  "author": "Aquib Momin",
+  "docs": "https://github.com/aquibmomin007/pokedex/blob/master/README.md",
+  "homepage": "https://github.com/aquibmomin007/pokedex"
 }

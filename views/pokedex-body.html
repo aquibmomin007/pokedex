@@ -1,1 +1,9 @@
 <h2>Pokedex body</h2>
+
+<article  ng-controller = "PokeBodyController">
+	<div>
+		<ul ng-repeat="subArray in pokeData">
+			<li>{{subArray.ename}}</li>
+		</ul>
+	</div>	
+</article>
