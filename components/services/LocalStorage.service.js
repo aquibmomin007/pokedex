@@ -12,14 +12,18 @@
           var factory = {};
 
           factory.getData = function() {
-              console.log("inside get");
               var $http = $injector.get('$http');
                   return $http.get('/data/pokedex.json');
           };
 
+          factory.getTypes = function() {
+              var $http = $injector.get('$http');
+                  return $http.get('/data/types.json');
+          };
+
           return factory;
               
-          }
+    }
 
 
 })();

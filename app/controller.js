@@ -6,18 +6,37 @@
  * 
  */
 ;(function() {
+  var myApp = angular.module('pokedex');
 
-  angular
-    .module('pokedex')
-    .controller('PokeBodyController',['$scope', 'LocalStorage', PokeBodyController]);
+  myApp.controller('PokeBodyController',['$scope', 'LocalStorage', PokeBodyController]);
 
 
   function PokeBodyController($scope, LocalStorage) {
+    $scope.sortOptions = {
+      'ename' : 'Name',
+      'id'    : 'ID',
+      'type'  : 'Type'
+    };
+    $scope.sort = "ename";
+
+    $scope.setSort = function(type) {
+      if ($scope.sort === type.toLowerCase()) {
+          $scope.sort = '-' + type.toLowerCase();
+      } else if ($scope.sort === '-' + type.toLowerCase()) {
+          $scope.sort = type.toLowerCase();
+      } else {
+          $scope.sort = type.toLowerCase();
+      } 
+    };
+
+
     LocalStorage.getData().then(function(response) {
       $scope.pokeData = response.data;
-      console.log($scope.pokeData);
+    });
+
+    LocalStorage.getTypes().then(function(response) {
+      $scope.pokeTypes = response.data;
     });
   }
-
 
 })();

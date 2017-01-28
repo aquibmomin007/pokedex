@@ -1,9 +1,23 @@
-<h2>Pokedex body</h2>
-
 <article  ng-controller = "PokeBodyController">
 	<div>
-		<ul ng-repeat="subArray in pokeData">
-			<li>{{subArray.ename}}</li>
+		<ul class="restaurant-filter">
+            <li ng-repeat="(optionKey, optionData) in sortOptions" ng-click="setSort (optionKey)">{{optionData}}</li>
+		<ul>
+	</div>
+	<div>
+		<form class="form-inline">
+			<input ng-model="byName" type="text" placeholder="Filter by" autofocus>
+		</form>
+	</div>
+	<div>
+		<ul ng-repeat="subArray in pokeData | filter:byName | orderBy:sort">
+			<li class="poke-item">
+				<div>
+					<img src="/images/thm/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
+					<p class="title"><span class="poke-id">{{subArray.id + ' '}}</span>{{subArray.ename}}</p>
+					<span>  {{subArray.type}}</span>
+				</div>
+			</li>
 		</ul>
 	</div>	
 </article>
