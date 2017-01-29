@@ -255,6 +255,10 @@ MAIN PAGE
 			position: relative;
 			top: 3px;
 		}
+
+		&.active, &:hover{
+			background: rgba(255, 165, 0, 0.3);
+		}
 	}
 
 	ul{
@@ -268,6 +272,54 @@ MAIN PAGE
 	background-color: $orange;
 	margin: 0 0 20px;
 	@include clearfix();
+}
+
+.search-block{
+	input{
+		width: 100%;
+		max-width: 100%;
+		background: $up-white;
+		border: 2px solid $orange;
+	}
+
+	padding-left: 30px;
+}
+
+.filter-block{
+	.title{
+		font-weight: 600;
+		float: left;
+		padding: 5px 10px;
+		margin: 0 0 10px;
+		font-size: 18px; 
+		padding-left:10px;
+		line-height: 1.4;
+	}
+
+	label{
+		float: left;
+		clear: left;
+	}
+
+	padding: 10px;
+	color: $white;
+	background: $orange;
+}
+
+.label-block{
+	label{
+		color: $orange;
+		font-weight: 500;
+		padding: 5px 0
+	}
+
+	background: $up-white;
+	margin-top: 45px;
+	@include clearfix();
+}
+
+.poke-data-block{
+	padding-left: 30px;
 }
 /*********************
 FOOTER STYLES

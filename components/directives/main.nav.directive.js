@@ -11,9 +11,9 @@
    * <main-nav><main-nav/>
    *
    */
-  angular
-    .module('pokedex')
-    .directive('mainNav', tinMainNav);
+  var myApp = angular.module('pokedex');
+
+    myApp.directive('mainNav', tinMainNav);
 
   function tinMainNav() {
 
@@ -25,5 +25,7 @@
 
     return directiveDefinitionObject;
   }
+
+  
 
 })();

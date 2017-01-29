@@ -10,7 +10,6 @@
 
   myApp.controller('PokeBodyController',['$scope', 'LocalStorage', PokeBodyController]);
 
-
   function PokeBodyController($scope, LocalStorage) {
     $scope.sortOptions = {
       'ename' : 'Name',
@@ -19,13 +18,26 @@
     };
     $scope.sort = "ename";
 
-    $scope.setSort = function(type) {
+
+    $scope.setSort = function(type, event) {
+       var curItem = $(event.target),
+           curItemIcon = curItem.find('.icon');
+           if(!curItem.hasClass('active')){
+             curItem.siblings().removeClass('active');
+             curItem.addClass('active'); 
+           }
+
       if ($scope.sort === type.toLowerCase()) {
           $scope.sort = '-' + type.toLowerCase();
+          sortDesc(curItemIcon);  
+          
       } else if ($scope.sort === '-' + type.toLowerCase()) {
           $scope.sort = type.toLowerCase();
+          sortAsc(curItemIcon);
+          
       } else {
           $scope.sort = type.toLowerCase();
+          sortAsc(curItemIcon);
       } 
     };
 
@@ -78,6 +90,18 @@ var hasCommonElement = function (arr1,arr2){
      }
    });
    return bExists;
+}
+
+function sortAsc(curItemIcon){
+  if(curItemIcon.hasClass('icon-long-arrow-up')){
+    curItemIcon.removeClass('icon-long-arrow-up').addClass('icon-long-arrow-down')
+  }
+}
+
+function sortDesc(curItemIcon){
+  if(curItemIcon.hasClass('icon-long-arrow-down')){
+      curItemIcon.removeClass('icon-long-arrow-down').addClass('icon-long-arrow-up')
+  }
 }
 
 })();

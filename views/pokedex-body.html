@@ -1,23 +1,25 @@
 <article  ng-controller = "PokeBodyController" class="pokedex-container">
 	<div class="sort-block col-12">
-		<p class="title col-2">Sort</p>
-		<ul class="col-10">
-            <li class="col-4" ng-repeat="(optionKey, optionData) in sortOptions" ng-click="setSort (optionKey)">{{optionData}} <span class="icon icon-long-arrow-down"></span></li>
+		<p class="title col-3">Sort</p>
+		<ul class="col-9">
+            <li class="col-4" ng-repeat="(optionKey, optionData) in sortOptions" ng-click="setSort (optionKey, $event)">{{optionData}} <span class="icon icon-long-arrow-down"></span></li>
 		<ul>
 	</div>
+	<aside class="col-3 filter-block">
+		<p class="title">Type</p>
+		<div class="label-block">
+			<label ng-repeat="typeObj in pokeTypes" ng-init="myVar=typeObj.cname">
+	      <input type="checkbox" ng-model="typeObj.cname" ng-click="includeType(myVar)" /> {{typeObj.ename}} 
+	  	</label>
+	  	</div>
+	</aside>
 	
-	<div class="search-block col-12">
+	<div class="search-block col-9">
 		<form class="form-inline">
 			<input ng-model="byName" type="text" placeholder="Filter by" autofocus>
 		</form>
 	</div>
-	<aside class="col-3">
-		<p>Type</p>
-		<label ng-repeat="typeObj in pokeTypes" ng-init="myVar=typeObj.cname">
-	      <input type="checkbox" ng-model="typeObj.cname" ng-click="includeType(myVar)" /> {{typeObj.ename}} 
-	  	</label>
-	</aside>
-	<div class="col-9">
+	<div class="col-9 poke-data-block">
 		<ul ng-repeat="subArray in pokeData | filter:byName | filter:filterType | orderBy:sort">
 			<li class="poke-item">
 				<div>
