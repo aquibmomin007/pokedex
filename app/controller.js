@@ -29,6 +29,30 @@
       } 
     };
 
+    $scope.typeIncludes = [];
+    
+    $scope.includeType = function(type) {
+        
+        var i = $.inArray(type, $scope.typeIncludes);
+        if (i > -1) {
+            $scope.typeIncludes.splice(i, 1);
+        } else {
+            $scope.typeIncludes.push(type);
+        }
+    }
+
+    $scope.filterType = function(pokeData) {
+      
+        if ($scope.typeIncludes.length > 0) {
+            console.log(hasCommonElement(pokeData.type, $scope.typeIncludes));
+            if (!hasCommonElement(pokeData.type, $scope.typeIncludes)){
+                return;
+            }
+        }
+        
+        return pokeData;
+    }
+
 
     LocalStorage.getData().then(function(response) {
       $scope.pokeData = response.data;
@@ -38,5 +62,22 @@
       $scope.pokeTypes = response.data;
     });
   }
+
+
+var hasCommonElement = function (arr1,arr2){
+   var bExists = false;
+   $.each(arr2, function(index, value){
+
+     if($.inArray(value,arr1)!=-1){
+        console.log(value);
+        bExists = true;
+     }
+
+     if(bExists){
+         return false;  //break
+     }
+   });
+   return bExists;
+}
 
 })();

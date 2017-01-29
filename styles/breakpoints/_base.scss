@@ -8,10 +8,11 @@ Mobile
 GENERAL STYLES
 *********************/
 
+
 body {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
-	background-color: $gray;
+	background-color: $up-white;
 	color: $text-color;
 	font-family: $font;
 	font-size: 100%;
@@ -228,6 +229,46 @@ MAIN PAGE
 	float: left;
 }
 
+.pokedex-container{
+	padding: 20px;
+}
+
+.sort-block{
+	.title{
+		font-weight: 600;
+		float: left;
+		padding: 5px 10px;
+		margin: 0;
+		font-size: 18px; 
+		padding-left:10px;
+		line-height: 1.4;
+	}
+
+	li{
+		float: left;
+		padding: 5px 10px;
+		text-align: center;
+		color: $orange;
+		cursor: pointer;
+
+		.icon{
+			position: relative;
+			top: 3px;
+		}
+	}
+
+	ul{
+		float: left;
+		background: $up-white; 
+		@include clearfix();
+	}
+
+	padding: 5px 10px;
+	color: $white;
+	background-color: $orange;
+	margin: 0 0 20px;
+	@include clearfix();
+}
 /*********************
 FOOTER STYLES
 *********************/

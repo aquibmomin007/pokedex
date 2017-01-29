@@ -1,16 +1,24 @@
-<article  ng-controller = "PokeBodyController">
-	<div>
-		<ul class="restaurant-filter">
-            <li ng-repeat="(optionKey, optionData) in sortOptions" ng-click="setSort (optionKey)">{{optionData}}</li>
+<article  ng-controller = "PokeBodyController" class="pokedex-container">
+	<div class="sort-block col-12">
+		<p class="title col-2">Sort</p>
+		<ul class="col-10">
+            <li class="col-4" ng-repeat="(optionKey, optionData) in sortOptions" ng-click="setSort (optionKey)">{{optionData}} <span class="icon icon-long-arrow-down"></span></li>
 		<ul>
 	</div>
-	<div>
+	
+	<div class="search-block col-12">
 		<form class="form-inline">
 			<input ng-model="byName" type="text" placeholder="Filter by" autofocus>
 		</form>
 	</div>
-	<div>
-		<ul ng-repeat="subArray in pokeData | filter:byName | orderBy:sort">
+	<aside class="col-3">
+		<p>Type</p>
+		<label ng-repeat="typeObj in pokeTypes" ng-init="myVar=typeObj.cname">
+	      <input type="checkbox" ng-model="typeObj.cname" ng-click="includeType(myVar)" /> {{typeObj.ename}} 
+	  	</label>
+	</aside>
+	<div class="col-9">
+		<ul ng-repeat="subArray in pokeData | filter:byName | filter:filterType | orderBy:sort">
 			<li class="poke-item">
 				<div>
 					<img src="/images/thm/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
