@@ -135,7 +135,6 @@
     $scope.filterType = function(pokeData) {
       
         if ($scope.typeIncludes.length > 0) {
-            console.log(hasCommonElement(pokeData.type, $scope.typeIncludes));
             if (!hasCommonElement(pokeData.type, $scope.typeIncludes)){
                 return;
             }
@@ -145,10 +144,14 @@
 
     $scope.getTypeEnglish = function(inputArr) {
         var returnData = '';
+
         $.each($scope.pokeTypes, function(i, obj){
             if($.inArray(obj.cname,inputArr)!=-1){
+                
                 returnData += obj.ename + ', ';
             }
+
+            console.log(returnData);
         });
 
         returnData = returnData.substring(0, returnData.length - 2);
