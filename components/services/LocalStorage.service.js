@@ -1,11 +1,9 @@
 ;(function() {
 
-
     'use strict';
     
-    angular
-      .module('pokedex')
-      .factory('LocalStorage',['$injector', LocalStorageService]);
+    angular.module('pokedex')
+    		.factory('LocalStorage',['$injector', LocalStorageService]);
     
 
     function LocalStorageService($injector) {
@@ -24,6 +22,5 @@
           return factory;
               
     }
-
 
 })();

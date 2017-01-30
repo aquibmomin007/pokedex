@@ -18,6 +18,81 @@
     };
     $scope.sort = "ename";
 
+    $scope.showDetails = function(event, baseObject) {
+        var curItem = $(event.target),
+            myBarChart, dataArr = [], labelArr = [],
+            ctx;
+
+            for (var property in baseObject) {
+
+               if ( ! baseObject.hasOwnProperty(property)) {
+                  continue;
+               }
+
+               labelArr.push(property);
+               dataArr.push(baseObject[property]);
+
+            }
+
+            if($(event.target).hasClass('poke-item')){
+              curItem = $(event.target);
+            }
+            else{
+              curItem = $(event.target).parent();
+            }
+
+            curItem.siblings().removeClass('expand');
+            curItem.addClass('expand');
+            ctx = curItem.find('.power-level');
+
+            data = {
+                labels: labelArr,
+                datasets: [
+                    {
+                        data: dataArr,
+                        backgroundColor: [
+                          'rgba(255, 99, 132, 1)',
+                          'rgba(54, 162, 235, 1)',
+                          'rgba(0, 0, 204, 1)',
+                          'rgba(75, 192, 192, 1)',
+                          'rgba(153, 102, 255, 1)',
+                          'rgba(255, 159, 64, 1)'
+                        ]
+
+                    }
+                ]
+            };
+
+            myBarChart = new Chart(ctx, {
+                type: 'bar',
+                data: data,
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true,
+                                fontSize: 16
+                            }
+                        }],
+                        xAxes: [{
+                            ticks: {
+                                fontSize: 16
+                            }
+                        }]
+                    },
+                    title: {
+                        display: true,
+                        text: 'Specifications',
+                        fontSize: 20
+                    },
+                    legend: {
+                        display: false
+                    }
+                }
+            });
+
+            myBarChart.defaults.global.legend.display = false;
+    };  
 
     $scope.setSort = function(type, event) {
        var curItem = $(event.target),
@@ -60,11 +135,22 @@
             if (!hasCommonElement(pokeData.type, $scope.typeIncludes)){
                 return;
             }
-        }
-        
+        }  
         return pokeData;
     }
 
+    $scope.getTypeEnglish = function(inputArr) {
+        var returnData = '';
+        $.each($scope.pokeTypes, function(i, obj){
+            if($.inArray(obj.cname,inputArr)!=-1){
+                returnData += obj.ename + ', ';
+            }
+        });
+
+        returnData = returnData.substring(0, returnData.length - 2);
+        
+        return returnData;
+    }
 
     LocalStorage.getData().then(function(response) {
       $scope.pokeData = response.data;
@@ -73,15 +159,17 @@
     LocalStorage.getTypes().then(function(response) {
       $scope.pokeTypes = response.data;
     });
+
+
   }
 
+  
 
 var hasCommonElement = function (arr1,arr2){
    var bExists = false;
    $.each(arr2, function(index, value){
 
      if($.inArray(value,arr1)!=-1){
-        console.log(value);
         bExists = true;
      }
 

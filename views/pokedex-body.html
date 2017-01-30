@@ -2,9 +2,10 @@
 	<div class="sort-block col-12">
 		<p class="title col-3">Sort</p>
 		<ul class="col-9">
-            <li class="col-4" ng-repeat="(optionKey, optionData) in sortOptions" ng-click="setSort (optionKey, $event)">{{optionData}} <span class="icon icon-long-arrow-down"></span></li>
+            <li class="col-4"  ng-repeat="(optionKey, optionData) in sortOptions" ng-class="{'active': $first}" ng-click="setSort (optionKey, $event)">{{optionData}} <span class="icon icon-long-arrow-down"></span></li>
 		<ul>
 	</div>
+
 	<aside class="col-3 filter-block">
 		<p class="title">Type</p>
 		<div class="label-block">
@@ -13,20 +14,21 @@
 	  	</label>
 	  	</div>
 	</aside>
-	
+
 	<div class="search-block col-9">
 		<form class="form-inline">
 			<input ng-model="byName" type="text" placeholder="Filter by" autofocus>
 		</form>
 	</div>
 	<div class="col-9 poke-data-block">
-		<ul ng-repeat="subArray in pokeData | filter:byName | filter:filterType | orderBy:sort">
-			<li class="poke-item">
-				<div>
-					<img src="/images/thm/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
-					<p class="title"><span class="poke-id">{{subArray.id + ' '}}</span>{{subArray.ename}}</p>
-					<span>  {{subArray.type}}</span>
-				</div>
+		<ul class="col-12" >
+			<li class="poke-item col-4" ng-repeat="subArray in pokeData | filter:byName | filter:filterType | orderBy:sort" ng-click="showDetails($event, subArray.base)">
+				<img class="thumb-image" src="/images/thm/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
+				<img class="main-image" src="/images/img/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
+
+				<canvas id="myChart-{{$index}}" class="power-level"></canvas>
+				<p class="title"><span class="poke-id">{{subArray.id}}</span>{{subArray.ename}}</p>
+				<span><i>{{getTypeEnglish(subArray.type)}}</i></span>
 			</li>
 		</ul>
 	</div>	

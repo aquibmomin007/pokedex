@@ -248,16 +248,22 @@ MAIN PAGE
 		float: left;
 		padding: 5px 10px;
 		text-align: center;
-		color: $orange;
+		color: black;
 		cursor: pointer;
+
 
 		.icon{
 			position: relative;
 			top: 3px;
 		}
 
-		&.active, &:hover{
-			background: rgba(255, 165, 0, 0.3);
+		&.active{
+			color: $orange;
+			font-weight: 700;
+		}
+
+		&:hover{
+			color: $orange;
 		}
 	}
 
@@ -314,13 +320,82 @@ MAIN PAGE
 	}
 
 	background: $up-white;
+	padding: 10px 20px;
 	margin-top: 45px;
 	@include clearfix();
 }
 
 .poke-data-block{
 	padding-left: 30px;
+
+	ul{
+		@include clearfix();
+	}
 }
+
+.poke-item{
+	.title{
+		font-size: 18px;
+		font-weight: 800;
+		margin: 10px 0;
+
+		span{
+			margin-right: 7px; 
+		}
+	}
+
+	.power-level{
+		display: none !important;
+	}
+
+	.thumb-image{
+		display: block;
+		margin: auto;
+	}
+
+	.main-image{
+		display: none;
+		max-width: 230px;	
+	}
+
+	cursor: pointer;
+	padding: 10px;
+    text-align: center;
+    border: 2px solid $up-white;
+    background: rgba(255, 165, 0, 0.4);
+    height: 200px;
+
+	&.expand{
+		height: 400px;
+		width: 100%;	
+		text-align: left; 
+
+		.thumb-image{
+			display: none;
+		}
+
+		.main-image{
+			display: block;	
+		}
+		
+		.power-level{
+			display: block !important;
+		}
+
+		img, span, .title{
+			float: left;
+			clear: left;
+		}
+	}
+}
+
+.power-level{
+	width: 400px !important;
+    height: 350px !important;
+    position: relative;
+    float: right;
+}
+
 /*********************
 FOOTER STYLES
 *********************/

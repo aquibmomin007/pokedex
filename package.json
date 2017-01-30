@@ -54,5 +54,8 @@
   ],
   "author": "Aquib Momin",
   "docs": "https://github.com/aquibmomin007/pokedex/blob/master/README.md",
-  "homepage": "https://github.com/aquibmomin007/pokedex"
+  "homepage": "https://github.com/aquibmomin007/pokedex",
+  "dependencies": {
+    "angular-masonry": "^0.16.0"
+  }
 }
