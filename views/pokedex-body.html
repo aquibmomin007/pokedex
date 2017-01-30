@@ -27,8 +27,12 @@
 				<img class="main-image" src="/images/img/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
 
 				<canvas id="myChart-{{$index}}" class="power-level"></canvas>
-				<p class="title"><span class="poke-id">{{subArray.id}}</span>{{subArray.ename}}</p>
-				<span><i>{{getTypeEnglish(subArray.type)}}</i></span>
+				<p class="title"><span class="poke-id">ID : {{subArray.id}}</span></p>
+				<p class="name-cl">English : <span>{{subArray.ename}}</span></p>
+				<p class="name-cl small-no-show">Chinese : <span>{{subArray.cname}}</span></p>
+				<p class="name-cl small-no-show">Japanese : <span>{{subArray.jname}}</span></p>
+				<span class="name-cl">Type : <i>{{getTypeEnglish(subArray.type)}}</i></span>
+				<span class="icon icon-cross cancel-btn" ng-click="closeUp($event)"></span>
 			</li>
 		</ul>
 	</div>	

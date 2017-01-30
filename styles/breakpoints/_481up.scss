@@ -11,3 +11,13 @@ POSTS & CONTENT STYLES
 .container {
 	width: 480px;
 }
+
+.poke-item{
+	&.col-4{
+		width: 50%;
+	}
+
+	&.expand{
+		height: 400px;
+	}
+}

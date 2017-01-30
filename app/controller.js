@@ -17,6 +17,14 @@
       'type'  : 'Type'
     };
     $scope.sort = "ename";
+    $scope.typeIncludes = [];
+
+    $scope.closeUp = function($event){
+        var closeItem = $(event.target);  
+            $event.stopPropagation();
+
+            closeItem.parent().removeClass('expand');
+    }
 
     $scope.showDetails = function(event, baseObject) {
         var curItem = $(event.target),
@@ -90,8 +98,6 @@
                     }
                 }
             });
-
-            myBarChart.defaults.global.legend.display = false;
     };  
 
     $scope.setSort = function(type, event) {
@@ -115,8 +121,6 @@
           sortAsc(curItemIcon);
       } 
     };
-
-    $scope.typeIncludes = [];
     
     $scope.includeType = function(type) {
         
@@ -163,33 +167,31 @@
 
   }
 
-  
+  var hasCommonElement = function (arr1,arr2){
+     var bExists = false;
+     $.each(arr2, function(index, value){
 
-var hasCommonElement = function (arr1,arr2){
-   var bExists = false;
-   $.each(arr2, function(index, value){
+       if($.inArray(value,arr1)!=-1){
+          bExists = true;
+       }
 
-     if($.inArray(value,arr1)!=-1){
-        bExists = true;
-     }
-
-     if(bExists){
-         return false;  //break
-     }
-   });
-   return bExists;
-}
-
-function sortAsc(curItemIcon){
-  if(curItemIcon.hasClass('icon-long-arrow-up')){
-    curItemIcon.removeClass('icon-long-arrow-up').addClass('icon-long-arrow-down')
+       if(bExists){
+           return false;  //break
+       }
+     });
+     return bExists;
   }
-}
 
-function sortDesc(curItemIcon){
-  if(curItemIcon.hasClass('icon-long-arrow-down')){
-      curItemIcon.removeClass('icon-long-arrow-down').addClass('icon-long-arrow-up')
+  function sortAsc(curItemIcon){
+    if(curItemIcon.hasClass('icon-long-arrow-up')){
+      curItemIcon.removeClass('icon-long-arrow-up').addClass('icon-long-arrow-down')
+    }
   }
-}
+
+  function sortDesc(curItemIcon){
+    if(curItemIcon.hasClass('icon-long-arrow-down')){
+        curItemIcon.removeClass('icon-long-arrow-down').addClass('icon-long-arrow-up')
+    }
+  }
 
 })();

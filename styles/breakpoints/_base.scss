@@ -337,14 +337,22 @@ MAIN PAGE
 	.title{
 		font-size: 18px;
 		font-weight: 800;
-		margin: 10px 0;
+		margin: 5px 0 0;
 
 		span{
 			margin-right: 7px; 
 		}
 	}
 
-	.power-level{
+	.cancel-btn{
+		position: absolute;
+		top: 10px;
+		right: 10px;
+		display: none;
+		z-index: 99999;
+	}
+
+	.power-level, .small-no-show{
 		display: none !important;
 	}
 
@@ -360,13 +368,24 @@ MAIN PAGE
 
 	cursor: pointer;
 	padding: 10px;
+	position: relative;
     text-align: center;
     border: 2px solid $up-white;
     background: rgba(255, 165, 0, 0.4);
     height: 200px;
 
+    .name-cl{
+    	margin:0;
+    	clear: left;
+    	font-weight: 600;
+
+    	span, i{
+    		font-weight: 400;
+    	}
+    }
+
 	&.expand{
-		height: 400px;
+		height: 100%;
 		width: 100%;	
 		text-align: left; 
 
@@ -377,9 +396,17 @@ MAIN PAGE
 		.main-image{
 			display: block;	
 		}
+
+		.name-cl{
+			span{float: none;}
+		}
 		
-		.power-level{
+		.power-level, .small-no-show{
 			display: block !important;
+		}
+
+		.cancel-btn{
+			display: block;
 		}
 
 		img, span, .title{
@@ -395,6 +422,24 @@ MAIN PAGE
     position: relative;
     float: right;
 }
+
+.poke-item{
+  &.col-4{
+    width: 100%;
+
+    &.expand{
+      width: 100%;
+    }
+  }  
+
+  .main-image{
+    max-width: 100%;
+  }
+}
+
+.power-level {
+    width: 100% !important;
+} 
 
 /*********************
 FOOTER STYLES

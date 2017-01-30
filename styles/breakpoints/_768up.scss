@@ -36,6 +36,8 @@ HEADER STYLES
 	line-height: 1;
 }
 
+
+
 /*********************
 NAVIGATION STYLES
 *********************/
@@ -61,3 +63,24 @@ NAVIGATION STYLES
 		}
 	}
 }
+
+
+
+.poke-item{
+  &.col-4{
+    width: 50%;
+
+    &.expand{
+      width: 100%;
+      height: 400px;
+    }
+  }  
+
+  .main-image{
+    max-width: 30%;
+  }
+}
+
+.power-level {
+    width: 70% !important;
+}    

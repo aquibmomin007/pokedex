@@ -55,6 +55,7 @@ $up-white:				#fefefe;
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 .icon-long-arrow-up:before {
   content: "\e904";
 }
@@ -73,10 +74,12 @@ $up-white:				#fefefe;
 .icon-arrow-long-down:before {
   content: "\e901";
 }
+.icon-cross:before {
+  content: "\ea0f";
+}
 .icon-arrow-up2:before {
   content: "\ea3a";
 }
 .icon-arrow-down2:before {
   content: "\ea3e";
 }
-
