@@ -304,6 +304,10 @@ MAIN PAGE
 		line-height: 1.4;
 	}
 
+	.icon-filter-block{
+		display: none;
+	}
+
 	label{
 		float: left;
 		clear: left;
@@ -447,6 +451,8 @@ MAIN PAGE
 .container{
 	margin: auto;
 }
+
+
 /*********************
 FOOTER STYLES
 *********************/
