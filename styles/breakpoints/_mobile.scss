@@ -17,8 +17,29 @@ POSTS & CONTENT STYLES
 		width: 100%;
 	}
 
+	.data-container.col-4{
+      width: 100%; 
+  	  p{text-align: center;}	
+  	}
+
 	&.expand{
 		height: 100%;
+
+		img, span, .title{
+			float: none;
+			clear: none;
+		}
+
+		text-align: center;
+	}
+
+	.main-image{
+		width: 70%;
+		margin: 20px 15%;
+	}
+
+	.canvas-container{
+		width: 100% !important;
 	}
 }
 

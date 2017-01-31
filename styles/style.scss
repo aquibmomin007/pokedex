@@ -63,7 +63,7 @@ TABLET & SMALLER LAPTOPS
 @media only screen and (min-width: 768px) and (max-width: 1023px){
 
 	// styles in 768up.scss
-	@import "breakpoints/768up";
+	@import "breakpoints/tablet";
 
 } // end of media query
 
@@ -73,7 +73,7 @@ DESKTOP
 @media only screen and (min-width: 1024px) {
 
 	// styles in 1030up.scss
-	@import "breakpoints/1024up";
+	@import "breakpoints/desktop";
 
 } 
 

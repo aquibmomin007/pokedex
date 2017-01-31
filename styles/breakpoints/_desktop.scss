@@ -43,23 +43,73 @@ RESPONSIVE NAV
 }
 
 .poke-item{
+  &:hover{
+    .hover-details{top: 0;}
+    
+    &:after{
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      display: block;
+      background: rgba(0, 0, 0, 0.6);
+      margin: auto;
+      z-index: -1;
+    }
+
+    color: $white;
+  } 
+
+  .hover-details {
+      @include transition(all 0.3s ease-in-out);
+
+      padding: 5px 10px;
+      position: absolute;
+      top: -38px;
+      left: 0;
+      color: $white;
+      border-right: 2px solid $white;
+      border-bottom: 2px solid $white;
+      display: block;
+      z-index: 99;
+  }
 
 	&.col-4 {
 	    width: 33.33333%; 
 	}
 
+  .data-container.col-4{
+      width: 100%; 
+  }
+
   &.expand{
     height: 400px;
+
+    .data-container.col-4{
+      width: 33.33333%; 
+    }
+
+    &:hover{
+      .hover-details{display: none}
+      
+      &:after{
+        display: none;
+      }
+      color: #5c6b80;
+    } 
   }
 
+  .canvas-container{
+    max-width: 400px;
+  }
   .main-image{
-    max-width: 200px;
+    max-width: 100%;
   }
-}
 
-.power-level {
-    width: 60% !important;
-}    
+  overflow: hidden;
+}
 
 // grid
 

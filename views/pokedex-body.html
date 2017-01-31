@@ -22,16 +22,21 @@
 	<div class="col-9 poke-data-block">
 		<ul class="col-12" >
 			<li class="poke-item col-4" ng-repeat="subArray in pokeData | filter:byName | filter:filterType | orderBy:sort" ng-click="showDetails($event, subArray.base)" ng-init="myType=subArray.type">
-				<img class="thumb-image" src="/images/thm/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
-				<img class="main-image" src="/images/img/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
+				<span class="hover-details">Details</span>
+				<div class="data-container col-4">
+					<img class="thumb-image" src="/images/thm/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
+					<img class="main-image" src="/images/img/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
 
-				<canvas id="myChart-{{$index}}" class="power-level"></canvas>
-				<p class="title"><span class="poke-id">ID : {{subArray.id}}</span></p>
-				<p class="name-cl">English : <span>{{subArray.ename}}</span></p>
-				<p class="name-cl small-no-show">Chinese : <span>{{subArray.cname}}</span></p>
-				<p class="name-cl small-no-show">Japanese : <span>{{subArray.jname}}</span></p>
-				<span class="name-cl">Type : <i>{{getTypeEnglish(myType)}}</i></span>
+					<p class="title"><span class="poke-id">ID : {{subArray.id}}</span></p>
+					<p class="name-cl">English : <span>{{subArray.ename}}</span></p>
+					<p class="name-cl small-no-show">Chinese : <span>{{subArray.cname}}</span></p>
+					<p class="name-cl small-no-show">Japanese : <span>{{subArray.jname}}</span></p>
+					<span class="name-cl">Type : <i>{{getTypeEnglish(myType)}}</i></span>
+				</div>	
 				<span class="icon icon-cross cancel-btn" ng-click="closeUp($event)"></span>
+				<div class="canvas-container col-8">
+					<canvas id="myChart-{{$index}}" class="power-level" width="400" height="400"></canvas>
+				</div>
 			</li>
 		</ul>
 	</div>	

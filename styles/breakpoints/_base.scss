@@ -248,7 +248,7 @@ MAIN PAGE
 
 	li{
 		float: left;
-		padding: 5px 10px;
+		padding: 5px 2px;
 		text-align: center;
 		color: black;
 		cursor: pointer;
@@ -421,11 +421,14 @@ MAIN PAGE
 			clear: left;
 		}
 	}
+
+	.hover-details {
+	    display: none;
+	}
 }
 
-.power-level{
-	width: 400px !important;
-    height: 350px !important;
+.canvas-container{
+	
     position: relative;
     float: right;
 }
@@ -444,9 +447,6 @@ MAIN PAGE
   }
 }
 
-.power-level {
-    width: 100% !important;
-} 
 
 .container{
 	margin: auto;

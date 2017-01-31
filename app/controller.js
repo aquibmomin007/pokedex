@@ -28,8 +28,17 @@
 
     $scope.showDetails = function(event, baseObject) {
         var curItem = $(event.target),
-            myBarChart, dataArr = [], labelArr = [],
-            ctx;
+            myBarChart,ctx, 
+            dataArr = [], 
+            labelArr = [],
+            colorArr = [
+                          'rgba(255, 99, 132, 1)',
+                          'rgba(54, 162, 235, 1)',
+                          'rgba(0, 0, 204, 1)',
+                          'rgba(75, 192, 192, 1)',
+                          'rgba(153, 102, 255, 1)',
+                          'rgba(255, 159, 64, 1)'
+                        ];
 
             for (var property in baseObject) {
 
@@ -41,16 +50,14 @@
                dataArr.push(baseObject[property]);
 
             }
-
-            if($(event.target).hasClass('poke-item')){
-              curItem = $(event.target);
-            }
-            else{
-              curItem = $(event.target).parent();
-            }
-
+            
+            curItem = $(event.target).closest('.poke-item');
             curItem.siblings().removeClass('expand');
             curItem.addClass('expand');
+            $('html, body').animate({
+                scrollTop: curItem.offset().top
+            }, 500);
+
             ctx = curItem.find('.power-level');
 
             data = {
@@ -58,15 +65,7 @@
                 datasets: [
                     {
                         data: dataArr,
-                        backgroundColor: [
-                          'rgba(255, 99, 132, 1)',
-                          'rgba(54, 162, 235, 1)',
-                          'rgba(0, 0, 204, 1)',
-                          'rgba(75, 192, 192, 1)',
-                          'rgba(153, 102, 255, 1)',
-                          'rgba(255, 159, 64, 1)'
-                        ]
-
+                        backgroundColor: colorArr
                     }
                 ]
             };
@@ -76,15 +75,23 @@
                 data: data,
                 options: {
                     scales: {
+                        responsive: true,
+                        maintainAspectRatio: false,
                         yAxes: [{
                             ticks: {
                                 beginAtZero:true,
                                 fontSize: 16
+                            },
+                            gridLines: {
+                                display:false
                             }
                         }],
                         xAxes: [{
                             ticks: {
                                 fontSize: 16
+                            },
+                            gridLines: {
+                                display:false
                             }
                         }]
                     },
