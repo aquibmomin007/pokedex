@@ -55,9 +55,11 @@ $up-white:				#fefefe;
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-.icon-filter:before {
+.icon-pokeball:before {
   content: "\e906";
+}
+.icon-filter:before {
+  content: "\e907";
 }
 .icon-long-arrow-up:before {
   content: "\e904";
@@ -86,4 +88,3 @@ $up-white:				#fefefe;
 .icon-arrow-down2:before {
   content: "\ea3e";
 }
-
