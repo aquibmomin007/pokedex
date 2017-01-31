@@ -156,6 +156,24 @@
         return returnData;
     }
 
+    $scope.showFilter = function($event){
+      if($(window).width() < 767) {
+              var $filterBlock = $('.filter-block'),
+                  $curSpan = $($event.target);
+
+                if($curSpan.hasClass('icon-filter')){
+                      $filterBlock.addClass('show-filter');
+                      $curSpan.removeClass('icon-filter');
+                      $curSpan.addClass('icon-cross');
+                }
+                else if($curSpan.hasClass('icon-cross')){
+                      $filterBlock.removeClass('show-filter');
+                      $curSpan.removeClass('icon-cross');
+                      $curSpan.addClass('icon-filter');
+                }
+          }
+    }
+
     LocalStorage.getData().then(function(response) {
       $scope.pokeData = response.data;
     });

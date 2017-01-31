@@ -8,11 +8,10 @@
 
 	<aside class="col-3 filter-block">
 		<p class="title">Type</p>
-		<div class="label-block">
-			<label ng-repeat="typeObj in pokeTypes" ng-init="myVar=typeObj.cname">
-	      <input type="checkbox" ng-click="includeType(myVar)" /> {{typeObj.ename}} 
-	  	</label>
+		<div class="label-block scroll-style">
+			<label ng-repeat="typeObj in pokeTypes" ng-init="myVar=typeObj.cname"><input type="checkbox" ng-click="includeType(myVar)" /> {{typeObj.ename}} </label>
 	  	</div>
+	  	<span class="icon icon-filter icon-filter-block" ng-click="showFilter($event)"></span>
 	</aside>
 
 	<div class="search-block col-9">
