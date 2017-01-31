@@ -48,10 +48,18 @@ RESPONSIVE NAV
 	    width: 33.33333%; 
 	}
 
-    &.expand{
-      height: 400px;
-    }
+  &.expand{
+    height: 400px;
+  }
+
+  .main-image{
+    max-width: 200px;
+  }
 }
+
+.power-level {
+    width: 60% !important;
+}    
 
 // grid
 

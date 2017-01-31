@@ -10,7 +10,7 @@
 		<p class="title">Type</p>
 		<div class="label-block">
 			<label ng-repeat="typeObj in pokeTypes" ng-init="myVar=typeObj.cname">
-	      <input type="checkbox" ng-model="typeObj.cname" ng-click="includeType(myVar)" /> {{typeObj.ename}} 
+	      <input type="checkbox" ng-click="includeType(myVar)" /> {{typeObj.ename}} 
 	  	</label>
 	  	</div>
 	</aside>
@@ -22,7 +22,7 @@
 	</div>
 	<div class="col-9 poke-data-block">
 		<ul class="col-12" >
-			<li class="poke-item col-4" ng-repeat="subArray in pokeData | filter:byName | filter:filterType | orderBy:sort" ng-click="showDetails($event, subArray.base)">
+			<li class="poke-item col-4" ng-repeat="subArray in pokeData | filter:byName | filter:filterType | orderBy:sort" ng-click="showDetails($event, subArray.base)" ng-init="myType=subArray.type">
 				<img class="thumb-image" src="/images/thm/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
 				<img class="main-image" src="/images/img/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
 
@@ -31,7 +31,7 @@
 				<p class="name-cl">English : <span>{{subArray.ename}}</span></p>
 				<p class="name-cl small-no-show">Chinese : <span>{{subArray.cname}}</span></p>
 				<p class="name-cl small-no-show">Japanese : <span>{{subArray.jname}}</span></p>
-				<span class="name-cl">Type : <i>{{getTypeEnglish(subArray.type)}}</i></span>
+				<span class="name-cl">Type : <i>{{getTypeEnglish(myType)}}</i></span>
 				<span class="icon icon-cross cancel-btn" ng-click="closeUp($event)"></span>
 			</li>
 		</ul>
