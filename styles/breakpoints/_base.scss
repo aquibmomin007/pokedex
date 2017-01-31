@@ -231,6 +231,8 @@ MAIN PAGE
 
 .pokedex-container{
 	padding: 20px;
+
+	@include clearfix();
 }
 
 .sort-block{
@@ -441,6 +443,9 @@ MAIN PAGE
     width: 100% !important;
 } 
 
+.container{
+	margin: auto;
+}
 /*********************
 FOOTER STYLES
 *********************/

@@ -9,15 +9,27 @@ POSTS & CONTENT STYLES
 *********************/
 
 .container {
-	width: 480px;
+	width: 100%;
 }
 
 .poke-item{
 	&.col-4{
-		width: 50%;
+		width: 100%;
 	}
 
 	&.expand{
-		height: 400px;
+		height: 100%;
 	}
+}
+
+.filter-block{
+	position: fixed;
+	width: 140px;
+    left: -140px;
+    top: 84px;
+}
+
+.search-block, .poke-data-block{
+	padding: 0;
+	width: 100%;
 }

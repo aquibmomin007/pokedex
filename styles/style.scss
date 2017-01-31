@@ -50,10 +50,10 @@ BASE (MOBILE) SIZE
 /*********************
 LARGER MOBILE DEVICES
 *********************/
-@media only screen and (min-width: 481px) and (max-width: 767px) {
+@media only screen and (min-width: 0px) and (max-width: 767px) {
 
 	// styles in 481up.scss
-	@import "breakpoints/481up";
+	@import "breakpoints/mobile";
 
 } // end of media query
 
