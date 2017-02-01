@@ -1,14 +1,4 @@
-/**
- * 
- * AngularJS Boilerplate
- * @description           Description
- * @author                Jozef Butko // www.jozefbutko.com/resume
- * @url                   www.jozefbutko.com
- * @version               1.1.7
- * @date                  March 2015
- * @license               MIT
- * 
- */
+
 ;(function() {
 
 
@@ -19,13 +9,10 @@
     .module('pokedex', ['ngRoute'])
     .config(config);
 
-  config.$inject = ['$routeProvider', '$locationProvider', '$httpProvider', '$compileProvider'];
+  config.$inject = ['$routeProvider', '$httpProvider'];
 
-  function config($routeProvider, $locationProvider, $httpProvider, $compileProvider) {
+  function config($routeProvider, $httpProvider) {
 
-    $locationProvider.html5Mode(false);
-
-    // routes
     $routeProvider
       .when('/', {
         templateUrl: 'views/pokedex-body.html',
