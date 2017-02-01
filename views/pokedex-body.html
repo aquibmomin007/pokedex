@@ -24,8 +24,9 @@
 			<li class="poke-item col-4" ng-repeat="subArray in pokeData | filter:byName | filter:filterType | orderBy:sort" ng-click="showDetails($event, subArray.base)" ng-init="myType=subArray.type">
 				<span class="hover-details">Details</span>
 				<div class="data-container col-4">
-					<img class="thumb-image" src="/images/thm/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
-					<img class="main-image" src="/images/img/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
+					
+					<img class="thumb-image" ng-src="/images/thm/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
+					<img class="main-image" ng-src="/images/img/{{subArray.id + (subArray.flatName ? subArray.flatName : subArray.ename) + '.png'}}" alt="{{subArray.ename}}">
 
 					<p class="title"><span class="poke-id">ID : {{subArray.id}}</span></p>
 					<p class="name-cl">English : <span>{{subArray.ename}}</span></p>

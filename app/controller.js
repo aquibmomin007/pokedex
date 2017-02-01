@@ -18,6 +18,7 @@
     };
     $scope.sort = "ename";
     $scope.typeIncludes = [];
+    $scope.pokeTypes = [];
 
     $scope.closeUp = function($event){
         var closeItem = $(event.target);  
@@ -157,6 +158,8 @@
                 returnData += obj.ename + ', ';
             }
         });
+
+
 
         returnData = returnData.substring(0, returnData.length - 2);
         
