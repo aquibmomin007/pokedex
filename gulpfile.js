@@ -98,6 +98,12 @@ gulp.task('concat', function() {
     .pipe(gulp.dest('./_build/'));
 });
 
+// copy json files
+gulp.task('copy-json-data', function() {
+  return gulp.src('./data/*.json')
+    .pipe(gulp.dest('./_build/data'));
+});
+
 // SASS task, will run when any SCSS files change & BrowserSync
 // will auto-update browsers
 gulp.task('sass', function() {
@@ -248,5 +254,6 @@ gulp.task('build', function(callback) {
     'usemin',
     'fonts',
     'build:size',
+    'copy-json-data',
     callback);
 });
