@@ -38,9 +38,9 @@ gulp
 gulp build
 ```
 **Note:** If `gulp build` fails. 
-	* Open command prompt in `Administrator mode`
-	* `npm cache clean`
-	*  Empty your `\Users\Unsername\AppData\Local\Temp\` folder
+- Open command prompt in `Administrator mode`
+* `npm cache clean`
+*  Empty your `\Users\Unsername\AppData\Local\Temp\` folder
 
 - this will process following tasks:
 * clean _build folder
