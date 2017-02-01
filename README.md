@@ -1,5 +1,5 @@
 # PokeDex App
-Simple AngularJS Boilerplate is used to create this Pokedex App.
+AngularJS Boilerplate is used to create this Pokedex App.
 ## Git Repository to Boilerplate
 ```bash
 https://github.com/jbutko/AngularJS-Boilerplate.git
@@ -38,11 +38,11 @@ gulp
 gulp build
 ```
 **Note:** If `gulp build` fails. 
-- Open command prompt in `Administrator mode`
+* Open command prompt in `Administrator mode`
 * `npm cache clean`
 *  Empty your `\Users\Unsername\AppData\Local\Temp\` folder
 
-- this will process following tasks:
+**this will process following tasks:**
 * clean _build folder
 * compile SASS files, minify and uncss compiled css
 * copy and optimize images
